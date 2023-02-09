@@ -148,6 +148,7 @@ for 是 Go 唯一的循环结构。  以下是 for 循环的一些基本类型�
 经典的 initial/condition/after for 循环。
 没有条件的 for 将重复循环，直到您跳出循环或从封闭函数返回。
 您还可以继续循环的下一次迭代。
+稍后当我们查看范围语句、通道和其他数据结构时，我们将看到一些其他形式。
 
 ```
 package main
@@ -186,15 +187,77 @@ func main() {
 
 ```
 $ go run for.go
-1
-2
-3
-7
-8
-9
+i is  1
+i is  1
+i is  2
+i is  3
+j is  7
+j is  8
+j is  9
 loop
-1
-3
-5
+n is  1
+n is  3
+
 ```
 
+### if else
+在 Go 中用 if 和 else 分支是很直接的。
+这是一个基本示例。
+你可以有一个没有 else 的 if 语句。
+语句可以先于条件；  此语句中声明的任何变量在当前和所有后续分支中都可用。
+请注意，您不需要在 Go 中将条件括起来，但大括号是必需的。
+Go 中没有三元 if，因此即使是基本条件，您也需要使用完整的 if 语句。
+
+<a href="https://en.wikipedia.org/wiki/Ternary_conditional_operator">三元if</a>
+
+```
+package main
+
+import (
+  "fmt"
+)
+
+func main() {
+  if 7 % 2 == 0 {
+    fmt.Println("7 is enve")
+  } else {
+    fmt.Println("7 is odd")
+  }
+
+  if 8 % 2 == 0 {
+    fmt.Println("8 is enve")
+  } else {
+    fmt.Println("8 is odd")
+  }
+
+  if 8 % 4 == 0 {
+    fmt.Println("8 is divisible by 4")
+  }
+
+  if 9 % 2 == 0 {
+    fmt.Println("9 is enve")
+  } else {
+    fmt.Println("9 is odd")
+  }
+
+  if num := 9; num < 0 {
+    fmt.Println(num, "is nagative")
+  } else if num < 10 {
+    fmt.Println(num, "has 1 digit")
+  } else {
+    fmt.Println(num, "has multiple digits")
+  }
+}
+
+```
+
+```
+go run if_else.go
+7 is odd
+8 is enve
+8 is divisible by 4
+9 is odd
+9 has 1 digit
+```
+
+###
