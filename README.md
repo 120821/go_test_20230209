@@ -141,3 +141,60 @@ constant
 600000000000
 -0.28470407323754404
 ```
+
+### for
+for 是 Go 唯一的循环结构。  以下是 for 循环的一些基本类型。
+最基本的类型，只有一个条件。
+经典的 initial/condition/after for 循环。
+没有条件的 for 将重复循环，直到您跳出循环或从封闭函数返回。
+您还可以继续循环的下一次迭代。
+
+```
+package main
+
+import (
+  "fmt"
+)
+
+func main() {
+
+  i := 1
+  fmt.Println("i is ", i)
+
+  for i <= 3 {
+    fmt.Println("i is ", i)
+    i = i + 1
+  }
+
+  for j := 7; j <= 9; j++ {
+    fmt.Println("j is ", j)
+  }
+
+  for {
+    fmt.Println("loop")
+    break
+  }
+
+  for n :=0; n < 5; n++ {
+    if n % 2 == 0 {
+      continue
+    }
+    fmt.Println("n is ", n)
+  }
+}
+```
+
+```
+$ go run for.go
+1
+2
+3
+7
+8
+9
+loop
+1
+3
+5
+```
+
