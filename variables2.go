@@ -21,5 +21,6 @@ func main() {
   var g bool
   g = true
   fmt.Println("g is ", g)
+  println("g is ", g)
 
 }
